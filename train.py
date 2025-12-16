@@ -15,9 +15,7 @@ from torchvision import transforms
 from torch.utils.tensorboard import SummaryWriter
 from sklearn.metrics import confusion_matrix, accuracy_score, classification_report
 
-# 设置随机种子保证可重复性
-torch.manual_seed(42)
-np.random.seed(42)
+
 
 
 # ==================== 1. 数据预处理和加载 ====================
@@ -428,9 +426,9 @@ def main():
     print(f"Using device: {device}")
 
     # 数据集路径（请根据实际情况修改）
-    train_path = 'food-11/training'
-    val_path = 'food-11/validation'
-    test_path = 'food-11/testing'
+    train_path = 'archive/training'
+    val_path = 'archive/validation'
+    test_path = 'archive/evaluation'
 
     # ==================== 1. 构造数据集 ====================
     print("Loading datasets...")
