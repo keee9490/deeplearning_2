@@ -464,9 +464,15 @@ def main():
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=0.001, weight_decay=1e-4)
 
-    # 学习率调度器
-    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='max', patience=3, factor=0.5, verbose=True)
-
+    # 学习率调度器(本地）
+    #scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='max', patience=3, factor=0.5, verbose=True)
+    # 移除verbose参数（适配PyTorch 2.7.0）
+    scheduler = optim.lr_scheduler.ReduceLROnPlateau(
+        optimizer,
+        mode='max',
+        patience=3,
+        factor=0.5
+    )
     # ==================== 训练模型 ====================
     print("\nStarting training...")
     num_epochs = 50
