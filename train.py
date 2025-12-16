@@ -469,7 +469,7 @@ def main():
 
     # ==================== 训练模型 ====================
     print("\nStarting training...")
-    num_epochs = 15
+    num_epochs = 50
     trained_model, train_losses, val_losses, val_accuracies, best_state = train_model(
         model, train_loader, val_loader, criterion, optimizer, num_epochs, device
     )
